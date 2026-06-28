@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: SpringSecurityOIDC
+
+  security:
+    oauth2:
+      client:
+        registration:
+          naver:
+            client-name: naver
+            client-id: ${NAVER_CLIENT_ID}
+            client-secret: ${NAVER_CLIENT_SECRET}
+            redirect-uri: http://localhost:8080/login/oauth2/code/naver
+            authorization-grant-type: authorization_code
+            scope: openid # OIDC 사용
+
+          google:
+            client-name: google
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+            authorization-grant-type: authorization_code
+            scope: openid, email # OIDC 사용
+        provider:
+          naver:
+            issuer-uri: https://nid.naver.com
+            authorization-uri: https://nid.naver.com/oauth2/authorize
+            jwk-set-uri: https://nid.naver.com/oauth2/jwks
+            token-uri: https://nid.naver.com/oauth2/token
