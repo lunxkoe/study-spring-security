@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: S01_P
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_dev_study_db?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: user
+    password: pass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mustache:
+    servlet:
+      expose-request-attributes: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+
+server:
+  servlet:
+    session:
+      timeout: 90m # 세션 소멸 시간
